@@ -24,6 +24,7 @@ class CreateMessagesTable extends Migration
             $table->timestamps();
 
             $table->primary('id');
+
         });
     }
 

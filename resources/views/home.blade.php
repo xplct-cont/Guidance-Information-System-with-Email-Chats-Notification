@@ -33,7 +33,7 @@
         {{-- <li class="nav-item d-flex justify-content-end" style="position:relative; top:-30px;">
             <a href="{{ route('calendar') }}"
                class="nav-link {{ Request::is('calendar') ? '' : '' }}">
-                <span class="input-group-text fas fa-calendar-alt bg-success "><span style="font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif">&nbsp;Calendar|Events</span> </span>
+                <span class="input-group-text fas fa-calendar-alt bg-success "><span style="font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif">&nbsp;Calendar|meetings</span> </span>
                 
             </a>
         </li> --}}
@@ -189,23 +189,23 @@
 
         <div class="card text-center mt-5 col-md-8" style="margin:auto;">
             <h3 style="color: dimgray; font-size: 20px;">
-                <div class="nav-item" style="position:relative; top:-30px; margin:auto; width: 150px;">
+                <div class="nav-item" style="position:relative; top:-30px; margin:auto; width: 200px;">
 
-                    <form action="{{ url('/add_new_event') }}" method="POST">
+                    <form action="{{ url('/add_new_meeting') }}" method="POST">
                         @csrf
 
                         <button type="button" class="btn btn-primary" data-toggle="modal"
                             data-target="#exampleModalCenter"
                             style="font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;"> <span
                                 class="fas fa-calendar-check"></span>
-                            Create Event
+                            Create Meeting
                         </button>
                         <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog"
                             aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
                             <div class="modal-dialog modal-dialog-centered" role="document">
                                 <div class="modal-content">
                                     <div class="modal-header bg-info">
-                                        <h5 class="modal-title" id="exampleModalLongTitle">Creating Event</h5>
+                                        <h5 class="modal-title" id="exampleModalLongTitle" style="font-weight:400">Creating Meeting...</h5>
                                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                             <span aria-hidden="true">&times;</span>
                                         </button>
@@ -213,25 +213,25 @@
                                     <div class="modal-body">
                                         <div class="form-group">
                                             <label for=""
-                                                style="color:dimgray; font-weight:500; font-size: 16px;">Title of the
-                                                Event</label>
+                                                style="color:dimgray; font-weight:500; font-size: 16px;">Title:
+                                              </label>
                                             <textarea id="" type="text" class="form-control" title="" rows="2" required
-                                                name="title_of_the_event" placeholder="Write the title of the event"></textarea>
+                                                name="title_of_the_meeting" placeholder="Write the title of the meeting"></textarea>
                                         </div>
 
                                         <div class="form-group mt-3">
                                             <label for=""
-                                                style="color:dimgray; font-weight:500; font-size: 16px; ">Location of the
-                                                Event</label>
+                                                style="color:dimgray; font-weight:500; font-size: 16px; "> Location:
+                                               </label>
                                             <input type="text" class="form-control"
-                                                placeholder="Location of the event" name="location_of_the_event" required>
+                                                placeholder="Location of the meeting" name="location_of_the_meeting" required>
                                         </div>
 
                                         <div class="form-group mt-3">
                                             <label for=""
-                                                style="color:dimgray; font-weight:500; font-size: 16px; ">Date/Time of the
-                                                Event</label>
-                                            <input type="datetime-local" class="form-control" name="event_date_time"
+                                                style="color:dimgray; font-weight:500; font-size: 16px; ">Date and Time:
+                                               </label>
+                                            <input type="datetime-local" class="form-control" name="meeting_date_time"
                                                 required>
                                         </div>
 
@@ -249,34 +249,34 @@
         </div>
         <img src="/images/image17.png" class="user-image img-circle elevation-2" alt="User Image"
             style="width: 40px; height:40px; border-radius: 50%; background-color: #5bc0de; padding-left: 2px; padding-right:2px; padding-bottom:2px; padding-top: 2px;">
-        School Events
+        SHS Meeting Schedules
         </h3>
-        <form action="{{ url('send-event/') }}" method="POST" accept-charset="UTF-8">
+        <form action="{{ url('send-meeting/') }}" method="POST" accept-charset="UTF-8">
             @csrf
             <table class="table table-sm">
                 <thead>
                     <tr>
-                        <th class="text-dark bg-secondary" style="text-align: center">Event Title</th>
-                        <th class="text-dark bg-secondary" style="text-align: center">Event Location</th>
-                        <th class="text-dark bg-secondary" style="text-align:center">Event Date/Time</th>
+                        <th class="text-dark bg-secondary" style="text-align: center">Title</th>
+                        <th class="text-dark bg-secondary" style="text-align: center">Location</th>
+                        <th class="text-dark bg-secondary" style="text-align:center">Date and Time</th>
                         <th class="text-dark bg-secondary" style="text-align:center">Action</th>
                     </tr>
                 </thead>
                 <tbody>
-                    @forelse ($events as $sched)
+                    @forelse ($meetings as $sched)
                         <tr class="text-dark">
 
-                            <td>{{ $sched->title_of_the_event }}</td>
-                            <td>{{ $sched->location_of_the_event }}</td>
-                            <td>{{ Carbon\Carbon::parse($sched->event_date_time)->format('F d,  Y - g:i A') }}</td>
-                            <td><a href="{{ url('event-delete/' . $sched->id) }}" class="btn btn-danger btn-xs "><i
+                            <td>{{ $sched->title_of_the_meeting }}</td>
+                            <td>{{ $sched->location_of_the_meeting }}</td>
+                            <td>{{ Carbon\Carbon::parse($sched->meeting_date_time)->format('F d,  Y - g:i A') }}</td>
+                            <td><a href="{{ url('meeting-delete/' . $sched->id) }}" class="btn btn-danger btn-xs "><i
                                         class="fas fa-trash"></i></a></td>
 
                         </tr>
                     @empty
                         <tr>
                             <td colspan="5" class="text-dark"><span
-                                    class="fas fa-exclamation-circle text-danger"></span> No Events found!</td>
+                                    class="fas fa-exclamation-circle text-danger"></span> No scheduled meetings found!</td>
                         </tr>
                     @endforelse
 

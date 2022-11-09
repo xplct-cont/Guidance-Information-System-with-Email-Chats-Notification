@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 use App\Models\User;
 use App\Models\Student;
-use App\Models\Event;
+use App\Models\Meeting;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Str;
@@ -36,8 +36,8 @@ class HomeController extends Controller
      * @return \Illuminate\Contracts\Support\Renderable
      */
     public function index(Request $request)
-    {
-        $events = DB::table('events')->get();
+    {     
+        $meetings = DB::table('meetings')->get();
         $user = DB::table('users')->whereNotNull('approved_at')->count();   
         $admin = DB::table('users')->where('admin', '1')->count();
 
@@ -62,10 +62,10 @@ class HomeController extends Controller
             ->orderBy("advisory","asc")
             ->paginate(3);  
 
-        return view('home', compact('events', 'admin', 'student11', 'user', 'adviser', 'student12'),
+        return view('home', compact('meetings', 'admin', 'student11', 'user', 'adviser', 'student12'),
         ['adviser' => $adviser])->with('i',(request()->input('page',1)-1)*5);
 
-    //    $events = DB::table('events')->get();
+    //    $meetings = DB::table('meetings')->get();
     //    
      
 
@@ -84,7 +84,7 @@ class HomeController extends Controller
     // ->orderBy("advisory","asc")
     // ->paginate(4);
 
-    //    return view('home', compact('user', 'admin', 'student', 'section', 'events'), ['section' => $section])
+    //    return view('home', compact('user', 'admin', 'student', 'section', 'meetings'), ['section' => $section])
     //    ->with('i',(request()->input('page',1)-1)*5);
       
     // }
@@ -98,9 +98,9 @@ class HomeController extends Controller
 
      public function destroy($id){
 
-        $events = Event::find($id);
-        $events->delete();
-        return redirect()->back()->with('status', 'Event Removed Successfully!');
+        $meetings = Meeting::find($id);
+        $meetings->delete();
+        return redirect()->back()->with('status', 'Scheduled Meeting Removed Successfully!');
      }
 
      public function edit($id){

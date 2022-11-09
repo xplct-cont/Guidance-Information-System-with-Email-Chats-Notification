@@ -8,7 +8,7 @@ use App\Http\Controllers\HomeController;
 use App\Http\Controllers\UserController;
 // use App\Http\Controllers\Admin\AdviserController;
 use App\Http\Controllers\Admin\AdminProfileController;
-use App\Http\Controllers\Admin\AdminEventController;
+use App\Http\Controllers\Admin\AdminMeetingController;
 use App\Http\Controllers\Admin\Student\WisdomStudentController;
 use App\Http\Controllers\Admin\Student\FaithStudentController;
 use App\Http\Controllers\Admin\Student\CharityStudentController;
@@ -467,12 +467,12 @@ Route::middleware(['auth', ])->group(function () {
         // Route::post('fullcalenderAjax', [AdminCalendarController::class, 'ajax']);
 
     
-       //for events admin
+       //for meetings admin
 
-       Route::post('/add_new_event', [AdminEventController::class, 'store']);
+       Route::post('/add_new_meeting', [AdminMeetingController::class, 'store']);
 
-       Route::get('/event-delete/{id}', [HomeController::class, 'destroy']);
-       Route::post('/send-event', function(){
+       Route::get('/meeting-delete/{id}', [HomeController::class, 'destroy']);
+       Route::post('/send-meeting', function(){
            $user = User::all();
         //    $student->notify(new EmailNotification());
         Notification::send($user, new EmailNotification());

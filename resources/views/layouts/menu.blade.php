@@ -61,11 +61,13 @@
         </li>
     </ul>
 </li>
-
+@php
+$bells = DB::table('ch_messages')->where('to_id', auth()->user()->id)->where('seen' , false)->count();
+@endphp
 
 <li class="nav-item">
     <a href="{{ url('guidance_information_system_chats') }}" class="nav-link {{ Request::is('guidance_information_system_chats') ? 'bg-info active' : '' }}">
-        <p class="text-white">Chats</p>
+        <p class="text-white">Chats <span class="badge badge-danger badge-counter">+{{$bells}}</span></p>
         <i class="fas fa-inbox fa-pull-left fa-md text-white"></i>
     </a>
 </li>

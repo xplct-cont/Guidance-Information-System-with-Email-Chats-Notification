@@ -61,7 +61,7 @@
 
             <div class="col-md-5 d-flex justify-content-center" style="height: 283px; overflow:hidden;">
                 <div class="d-flex justify-content-center">
-                    <img src="/images/avatars/{{ $adviser->avatar }}"
+                    <img src="/storage/users-avatar/{{ $adviser->avatar }}"
                         style=" width: 255px;height:255px;border-radius: 50%; float:left; ">
 
                 </div>

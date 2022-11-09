@@ -6,21 +6,21 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Notifications\Notifiable;
 
-class Event extends Model
+class Meeting extends Model
 {
     use HasFactory, Notifiable;
 
     protected $fillable = [
-        'user_id', 'title_of_the_event', 'location_of_the_event', 'event_date_time'
+        'user_id', 'title_of_the_meeting', 'location_of_the_meeting', 'meeting_date_time'
     ];
 
 
-    protected $table = "events";
+    protected $table = "meetings";
 
 
     protected $casts = [
         'created_at' => 'datetime',
-        'event_date_time' => 'date:hh:mm',
+        'meeting_date_time' => 'date:hh:mm',
         
     ];
 

@@ -6,13 +6,13 @@ use Illuminate\Bus\Queueable;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Notifications\Messages\MailMessage;
 use Illuminate\Notifications\Notification;
-use App\Models\Event;
+use App\Models\Meeting;
 use App\Http\Controllers\HomeController;
 use DB;
 use Carbon;
 
 
-class EmailNotification extends Notification
+class EmailNotification extends Notification 
 {
     use Queueable;
  
@@ -47,18 +47,19 @@ class EmailNotification extends Notification
     public function toMail($notifiable)
     {
           
-        //   $events = DB::table('events')->select('title','start','end')->first();
+        //   $meetings = DB::table('meetings')->select('title','start','end')->first();
            
-             $events = DB::table('events')->get();
-             foreach ($events as $event) {
+             $meetings = DB::table('meetings')->get();
+             foreach ($meetings as $meeting) {
                 # code...
                
 
         return (new MailMessage)
                      
-                    ->line('Event Title: '.$event->title_of_the_event)
-                    ->line('Event Location: '.$event->location_of_the_event)
-                    ->line('Date/Time of the event: ' . Carbon\Carbon::parse($event->event_date_time)->format('F d,  Y - g:i A'))
+                    ->greeting('Good Day! Kindly read the scheduled meeting.')
+                    ->line('Scheduled Meeting Title: '.$meeting->title_of_the_meeting)
+                    ->line(' Location: '.$meeting->location_of_the_meeting)
+                    ->line('Date and Time: ' . Carbon\Carbon::parse($meeting->meeting_date_time)->format('F d,  Y - g:i A'))
                     ->line('Thank you!');
     }
         
