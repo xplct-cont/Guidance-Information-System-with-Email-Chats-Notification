@@ -61,6 +61,15 @@
         </li>
     </ul>
 </li>
+
+<li class="nav-item mt-3">
+    <a href="{{ route('case-reports') }}" class="nav-link {{ Request::is('case-reports') ? 'bg-info active' : '' }}">
+        <p class="text-white">Case Reports</p>
+        <i class="fas fa-user-check fa-pull-left fa-md text-white"></i>
+    </a>
+</li>
+
+
 @php
 $bells = DB::table('ch_messages')->where('to_id', auth()->user()->id)->where('seen' , false)->count();
 @endphp
@@ -71,6 +80,8 @@ $bells = DB::table('ch_messages')->where('to_id', auth()->user()->id)->where('se
         <i class="fas fa-inbox fa-pull-left fa-md text-white"></i>
     </a>
 </li>
+
+
 
 {{-- <div class="text-white text-center mt-1" style="padding:5px; font-size:15px; background-color:dimgray;">
     <div class="bg-info p-2">GRADE 11 SECTIONS</div>

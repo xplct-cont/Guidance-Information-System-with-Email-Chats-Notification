@@ -55,6 +55,8 @@ use App\Http\Controllers\Admin\Student_Information_Sheet\Faith_Student_Informati
 use App\Http\Controllers\Admin\Student_Information_Sheet\Hope_Student_Information_SheetController;
 use App\Http\Controllers\Admin\Student_Information_Sheet\Love_Student_Information_SheetController;
 
+use App\Http\Controllers\Admin\Case_Report\Case_ReportController;
+
 use App\Http\Controllers\AdviserHomePageController;
 use App\Http\Controllers\Adviser\AdviserProfileController;
 use App\Http\Controllers\Adviser\StudentListController;
@@ -457,6 +459,14 @@ Route::middleware(['auth', ])->group(function () {
        Route::get('/delete_student_information_sheet_love/{id}', [Love_Student_Information_SheetController::class, 'destroy']);
        Route::put('/update_student_information_sheet_love/{id}', [Love_Student_Information_SheetController::class, 'updateInfo']);
 
+       //for Case Reports
+       Route::get('/case-reports', [Case_ReportController::class, 'index'])->name('case-reports');
+       Route::post('/create_case_report', [Case_ReportController::class, 'store']);
+       Route::get('/show_case_report/{id}', [Case_ReportController::class, 'show']);
+       Route::put('/update_case_report/{id}', [Case_ReportController::class, 'update']);
+       Route::get('/delete_case_report/{id}', [Case_ReportController::class, 'destroy']);
+       Route::get('/export_allCases_pdf', [Case_ReportController::class, 'export_allCases_pdf'])->name('export_allCases_pdf');
+       Route::get('export_one_case_pdf/{id}', [Case_ReportController::class, 'export_one_case_pdf'])->name('export_one_case_pdf');
        //for SHS Parents
        Route::get('shs-parents', [ParentController::class, 'index'])->name('shs-parents');
        Route::get('/email_to_parent/{id}', [ParentController::class, 'emailToParent']);

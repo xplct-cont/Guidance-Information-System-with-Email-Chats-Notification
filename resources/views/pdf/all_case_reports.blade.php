@@ -1,7 +1,11 @@
 <!DOCTYPE html>
 <html>
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </head>
 
-<head>
     <style>
         th {
             font-size: 12px;
@@ -9,6 +13,12 @@
 
         tr {
             font-size: 12px;
+        }
+
+        h2 {
+            text-align: center;
+            font-size: 13px;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
         }
 
         h1{
@@ -30,6 +40,7 @@
             width: 100px;
             margin-left: 298px;
         }
+
         p{
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             font-size: 12px;
@@ -65,11 +76,9 @@
             background-color:rgb(173, 173, 173);
             color: white;
             text-align: center;
-
-
         }
     </style>
-</head>
+
 
 <body style="text-center">
 
@@ -77,35 +86,35 @@
     <h1>Pangangan National High School</h1>
     <p>Talisay, Calape, Bohol</p>
     <hr>
-    <h2>List of Students in Grade 11 - Faith</h2>
-
-
-
+    <h2>REPORT OF CASES OF ABUSE, VIOLENCE, EXPLOITATION, DISCRIMINATION, BULLYING OR PEER ABUSE AND OTHER RELATED OFFENSES</h2>
     <table id="customers">
+
         <tr>
-            <th scope="col">Last Name</th>
-            <th scope="col">First Name</th>
-            <th scope="col">Middle Name</th>
-            <th scope="col">Year/Section</th>
-            <th scope="col">Age</th>
-            <th scope="col">Gender</th>
-            <th scope="col">Address</th>
+            <th>Name of Victim</th>
+            <th>Grade & Section</th>
+            <th>Sex</th>
+            <th>Date Reported</th>
+            <th>Name of Respondents</th>
+            <th>Grade & Section</th>
+            <th>Sex</th>
+            <th>Nature of Complaint</th>
         </tr>
-        @if (count($students))
-            @foreach ($students as $wisdom)
+        @if (count($case_reports))
+            @foreach ($case_reports as $reports)
                 <tr>
-                    <td>{{ $wisdom->lastname }}</td>
-                    <td>{{ $wisdom->firstname }}</td>
-                    <td>{{ $wisdom->middlename }}</td>
-                    <td>{{ $wisdom->year_section }}</td>
-                    <td>{{ $wisdom->age }}</td>
-                    <td>{{ $wisdom->gender }}</td>
-                    <td>{{ $wisdom->address }}</td>
+                    <td>{{ $reports->victim_name }}</td>
+                    <td>{{ $reports->grade_section }}</td>
+                    <td>{{ $reports->sex }}</td>
+                    <td>{{ Carbon\Carbon::parse($reports->date_reported)->format('F d,  Y ') }}</td>
+                    <td>{{ $reports->resp_name }}</td>
+                    <td>{{ $reports->resp_grade_section }}</td>
+                    <td>{{ $reports->resp_sex }}</td>
+                    <td>{{ $reports->nature_of_complaint }}</td>
                 </tr>
             @endforeach
         @else
             <tr>
-                <td colspan="3">No Grade 11 - Faith Students Found!</td>
+                <td colspan="3">No Reported Cases Found!</td>
             </tr>
 
         @endif

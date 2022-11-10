@@ -11,7 +11,29 @@
             font-size: 12px;
         }
 
+        h1{
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-size: 20px;
+            text-align: center;
+        }
+
         h2 {
+            text-align: center;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-size: 15px;
+            font-weight: 400;
+        }
+
+        img{
+            border-radius: 50%;
+            height: 100px;
+            width: 100px;
+            margin-left: 298px;
+        }
+
+        p{
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-size: 12px;
             text-align: center;
         }
 
@@ -41,8 +63,8 @@
             padding-top: 8px;
             padding-bottom: 8px;
             text-align: left;
-            background-color: #5bc0de;
-            color: dimgray;
+            background-color:rgb(173, 173, 173);
+            color: white;
             text-align: center;
 
 
@@ -52,12 +74,12 @@
 
 <body style="text-center">
 
-    <h1 style="font-size: 25px; text-center; font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;">Pangangan
-        National High School - Talisay, Calape, Bohol</h1>
+    
+    <img src="{{ public_path('images/image17.png') }}">
+    <h1>Pangangan National High School</h1>
+    <p>Talisay, Calape, Bohol</p>
     <hr>
-    <h2 style="font-size: 20px; text-center; font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;">List of
-        Students in Grade 12 - Hope</h2>
-
+    <h2>List of Students in Grade 12 - Hope</h2>
 
 
     <table id="customers">

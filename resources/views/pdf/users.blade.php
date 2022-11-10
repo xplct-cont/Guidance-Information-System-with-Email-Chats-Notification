@@ -6,15 +6,37 @@
 
 
 th{
-  font-size: 15px;
+  font-size: 13px;
 }
 
 tr{
-  font-size: 15px;
+  font-size: 13px;
 }
-h2{
-  text-align: center;
-}
+h1{
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-size: 20px;
+            text-align: center;
+        }
+
+        h2 {
+            text-align: center;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-size: 15px;
+            font-weight: 400;
+        }
+
+        .im img{
+            border-radius: 50%;
+            height: 100px;
+            width: 100px;
+            margin-left: 298px;
+        }
+
+        p{
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-size: 12px;
+            text-align: center;
+        }
 
 #customers {
   font-family: Arial, Helvetica, sans-serif;
@@ -37,8 +59,8 @@ h2{
   padding-top: 8px;
   padding-bottom: 8px;
   text-align: left;
-  background-color: #5bc0de;
-  color: dimgray;
+  background-color:rgb(173, 173, 173);
+  color: white;
   text-align: center;
 
 
@@ -47,9 +69,13 @@ h2{
 </head>
 
 <body style="text-center">
-<img src="{{ public_path('images/image17.png') }}" style="width: 100px; height: 100px; border-radius: 50%; margin-left: 300px;">
-<h1 style="font-size: 25px; text-center; font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;">Pangangan National High School - Talisay, Calape, Bohol</h1><hr>
-<h2 style="font-size: 20px; text-center; font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;">Senior High School Advisers</h2>
+  <div class="im">
+    <img src="{{ public_path('images/image17.png') }}">
+  </div>
+  <h1>Pangangan National High School</h1>
+  <p>Talisay, Calape, Bohol</p>
+  <hr>
+  <h2>Senior High School Advisers</h2>
 
 
  <table id="customers">
@@ -66,7 +92,7 @@ h2{
   @foreach($users as $user)
   <tr>
     <td>{{$user->id}}</td>
-    <td> <img src="{{ public_path('images/avatars/' . $user->avatar) }}" style="width: 30px; height: 30px; border-radius: 50%;"></td>
+    <td> <img src="{{'storage/users-avatar/' . $user->avatar}}" style="width: 30px; height: 30px; border-radius: 50%;"></td>
     <td>{{$user->name}}</td>
     <td>{{$user->advisory}}</td>
     <td>{{$user->contact_no}}</td>
