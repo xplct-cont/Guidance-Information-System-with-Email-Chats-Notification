@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 07, 2022 at 06:46 AM
+-- Generation Time: Nov 11, 2022 at 04:29 AM
 -- Server version: 10.4.21-MariaDB
 -- PHP Version: 7.3.30
 
@@ -52,6 +52,39 @@ CREATE TABLE `career_interest_test_results` (
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `case_reports`
+--
+
+CREATE TABLE `case_reports` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `user_id` bigint(20) UNSIGNED NOT NULL,
+  `victim_name` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `grade_section` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `sex` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `date_reported` date DEFAULT NULL,
+  `resp_name` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `resp_grade_section` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `resp_sex` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `nature_of_complaint` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `actions_taken` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `recommendations` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `case_reports`
+--
+
+INSERT INTO `case_reports` (`id`, `user_id`, `victim_name`, `grade_section`, `sex`, `date_reported`, `resp_name`, `resp_grade_section`, `resp_sex`, `nature_of_complaint`, `actions_taken`, `recommendations`, `created_at`, `updated_at`) VALUES
+(1, 1, 'John', 'Grade 11-wisdom', 'Male', '2022-11-10', 'John', 'Grade11-charity', 'Female', 'Bullyjng', 'Callnto office', 'Anti bullying symposium', '2022-11-10 02:47:40', '2022-11-10 02:47:40'),
+(3, 1, 'Nathan Holt', 'Venus Mckinney', 'Tatum Richard', '1976-12-11', 'Chancellor Manning', 'Kirk Hays', 'Arthur Poole', 'Adrian Charles', 'Voluptatem optio v', 'Numquam fuga Mollit', '2022-11-10 19:00:38', '2022-11-10 19:00:38'),
+(4, 1, 'Jana Miles', 'Dorian Gamble', 'Shafira Bartlett', '2009-03-16', 'Katelyn Horton', 'Ria Mayer', 'Thaddeus Baker', 'Rowan Macias', 'In eos corrupti dig', 'Eaque eos amet des', '2022-11-10 19:01:20', '2022-11-10 19:01:20'),
+(5, 1, 'Bianca Everett', 'Donovan Sexton', 'Magee Hammond', '2013-11-11', 'Britanni Pacheco', 'Benedict Mcleod', 'Natalie Franklin', 'Jaquelyn Wooten', 'Rerum consectetur do', 'Ut exercitationem qu', '2022-11-10 19:01:25', '2022-11-10 19:01:25');
 
 -- --------------------------------------------------------
 
@@ -110,22 +143,6 @@ CREATE TABLE `counseling_anecdotal_records` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `events`
---
-
-CREATE TABLE `events` (
-  `id` bigint(20) UNSIGNED NOT NULL,
-  `user_id` bigint(20) UNSIGNED NOT NULL,
-  `title_of_the_event` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `event_date_time` datetime DEFAULT NULL,
-  `location_of_the_event` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `created_at` timestamp NULL DEFAULT NULL,
-  `updated_at` timestamp NULL DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
-
--- --------------------------------------------------------
-
---
 -- Table structure for table `failed_jobs`
 --
 
@@ -137,6 +154,22 @@ CREATE TABLE `failed_jobs` (
   `payload` longtext COLLATE utf8mb4_unicode_ci NOT NULL,
   `exception` longtext COLLATE utf8mb4_unicode_ci NOT NULL,
   `failed_at` timestamp NOT NULL DEFAULT current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `meetings`
+--
+
+CREATE TABLE `meetings` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `user_id` bigint(20) UNSIGNED NOT NULL,
+  `title_of_the_meeting` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `meeting_date_time` datetime DEFAULT NULL,
+  `location_of_the_meeting` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- --------------------------------------------------------
@@ -160,7 +193,7 @@ INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
 (2, '2014_10_12_100000_create_password_resets_table', 1),
 (3, '2019_08_19_000000_create_failed_jobs_table', 1),
 (4, '2019_12_14_000001_create_personal_access_tokens_table', 1),
-(5, '2022_09_09_020733_create_events', 1),
+(5, '2022_09_09_020733_create_meetings', 1),
 (6, '2022_09_24_232859_create_students', 1),
 (7, '2022_10_10_053607_create_anecdotal_records', 1),
 (8, '2022_10_14_235130_create_counseling_anecdotal_records', 1),
@@ -173,7 +206,8 @@ INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
 (15, '2022_11_05_999999_add_dark_mode_to_users', 1),
 (16, '2022_11_05_999999_add_messenger_color_to_users', 1),
 (17, '2022_11_05_999999_create_favorites_table', 1),
-(18, '2022_11_05_999999_create_messages_table', 1);
+(18, '2022_11_05_999999_create_messages_table', 1),
+(19, '2022_11_10_022059_create_case_reports', 1);
 
 -- --------------------------------------------------------
 
@@ -263,6 +297,21 @@ CREATE TABLE `students` (
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `students`
+--
+
+INSERT INTO `students` (`id`, `user_id`, `firstname`, `lastname`, `middlename`, `gender`, `age`, `year_section`, `email`, `parent_name`, `parent_email`, `address`, `avatar`, `created_at`, `updated_at`) VALUES
+(1, 1, 'Amber', 'Jacob', 'McKenzie', 'Male', 'Carolyn', 'Grade 11 - Wisdom', 'weve@mailinator.com', 'Althea', 'zuwapyto@mailinator.com', 'Cathleen', 'image18.png', '2022-11-10 02:39:59', '2022-11-10 02:39:59'),
+(2, 1, 'Brenda', 'Prescott', 'Chastity', 'Female', 'Ishmael', 'Grade 11 - Wisdom', 'xoconafaru@mailinator.com', 'Heather', 'weneteneq@mailinator.com', 'Isabella', 'image18.png', '2022-11-10 02:40:04', '2022-11-10 02:40:04'),
+(3, 1, 'Flynn', 'Zahir', 'Kasper', 'Male', 'Emily', 'Grade 11 - Wisdom', 'kapumynys@mailinator.com', 'Amaya', 'kici@mailinator.com', 'Reuben', 'image18.png', '2022-11-10 02:40:09', '2022-11-10 02:40:09'),
+(4, 1, 'Ella', 'Ferdinand', 'Candice', 'Female', 'Phyllis', 'Grade 11 - Wisdom', 'zapu@mailinator.com', 'Rahim', 'mepyjusomu@mailinator.com', 'Daria', 'image18.png', '2022-11-10 02:40:13', '2022-11-10 02:40:13'),
+(5, 1, 'Cynthia', 'Ashton', 'Lavinia', 'Female', 'Yolanda', 'Grade 11 - Wisdom', 'bijupo@mailinator.com', 'Zena', 'cedyfiva@mailinator.com', 'Vanna', 'image18.png', '2022-11-10 02:40:19', '2022-11-10 02:40:19'),
+(6, 1, 'Louis', 'Wyoming', 'Shafira', 'Male', 'Brynn', 'Grade 11 - Wisdom', 'nujazek@mailinator.com', 'Emery', 'zupykahela@mailinator.com', 'Ruby', 'image18.png', '2022-11-10 02:40:23', '2022-11-10 02:40:23'),
+(7, 1, 'Keane', 'Griffith', 'Eric', 'Male', 'Isabella', 'Grade 11 - Wisdom', 'doqilomi@mailinator.com', 'Kennan', 'gegoguw@mailinator.com', 'Noah', 'image18.png', '2022-11-10 02:40:28', '2022-11-10 02:40:28'),
+(8, 1, 'Winifred', 'Summer', 'Alexa', 'Male', 'Isadora', 'Grade 11 - Wisdom', 'funewyzefi@mailinator.com', 'Emerald', 'kebam@mailinator.com', 'Leo', 'image18.png', '2022-11-10 02:40:33', '2022-11-10 02:40:33'),
+(9, 1, 'Abel', 'Grant', 'Allistair', 'Female', 'Kyle', 'Grade 11 - Wisdom', 'riwavafe@mailinator.com', 'Jerome', 'qana@mailinator.com', 'Quintessa', 'image18.png', '2022-11-10 02:40:41', '2022-11-10 02:40:41');
 
 -- --------------------------------------------------------
 
@@ -370,7 +419,7 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `name`, `email`, `email_verified_at`, `password`, `admin`, `approved_at`, `contact_no`, `advisory`, `avatar`, `role`, `last_seen`, `remember_token`, `created_at`, `updated_at`, `active_status`, `dark_mode`, `messenger_color`) VALUES
-(1, 'Severus Snape', 'kennbassist@gmail.com', '2022-11-06 21:45:51', '$2y$10$/iHUP/f0XZjpfbjRQvAii.9xp2xrzzZjECdXGX/uAMKfJXA/FOmlK', 1, '2022-11-06 21:45:51', '09361652609', 'Grade 11 - Wisdom', 'avatar.png', 'editor', NULL, NULL, '2022-11-06 21:45:51', '2022-11-06 21:45:51', 0, 0, '#2180f3');
+(1, 'Kenn Secusana', 'kennbassist@gmail.com', '2022-11-10 02:39:22', '$2y$10$5ZtnDbJGaLOtlEVuG1I4IuCg4RDjZ4xQ1sfNF9f5XtL9Eh8u.eHIW', 1, '2022-11-10 02:39:22', '09361652609', 'Grade 11 - Wisdom', 'avatar.png', 'editor', '2022-11-10 19:07:26', NULL, '2022-11-10 02:39:22', '2022-11-10 19:07:26', 0, 0, '#2180f3');
 
 --
 -- Indexes for dumped tables
@@ -389,6 +438,13 @@ ALTER TABLE `anecdotal_records`
 ALTER TABLE `career_interest_test_results`
   ADD PRIMARY KEY (`id`),
   ADD KEY `career_interest_test_results_student_id_foreign` (`student_id`);
+
+--
+-- Indexes for table `case_reports`
+--
+ALTER TABLE `case_reports`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `case_reports_user_id_foreign` (`user_id`);
 
 --
 -- Indexes for table `ch_favorites`
@@ -410,18 +466,18 @@ ALTER TABLE `counseling_anecdotal_records`
   ADD KEY `counseling_anecdotal_records_student_id_foreign` (`student_id`);
 
 --
--- Indexes for table `events`
---
-ALTER TABLE `events`
-  ADD PRIMARY KEY (`id`),
-  ADD KEY `events_user_id_foreign` (`user_id`);
-
---
 -- Indexes for table `failed_jobs`
 --
 ALTER TABLE `failed_jobs`
   ADD PRIMARY KEY (`id`),
   ADD UNIQUE KEY `failed_jobs_uuid_unique` (`uuid`);
+
+--
+-- Indexes for table `meetings`
+--
+ALTER TABLE `meetings`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `meetings_user_id_foreign` (`user_id`);
 
 --
 -- Indexes for table `migrations`
@@ -498,15 +554,15 @@ ALTER TABLE `career_interest_test_results`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
+-- AUTO_INCREMENT for table `case_reports`
+--
+ALTER TABLE `case_reports`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+
+--
 -- AUTO_INCREMENT for table `counseling_anecdotal_records`
 --
 ALTER TABLE `counseling_anecdotal_records`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
-
---
--- AUTO_INCREMENT for table `events`
---
-ALTER TABLE `events`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
@@ -516,10 +572,16 @@ ALTER TABLE `failed_jobs`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
+-- AUTO_INCREMENT for table `meetings`
+--
+ALTER TABLE `meetings`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
+
+--
 -- AUTO_INCREMENT for table `migrations`
 --
 ALTER TABLE `migrations`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
 
 --
 -- AUTO_INCREMENT for table `parent_conference_records`
@@ -543,7 +605,7 @@ ALTER TABLE `personal_access_tokens`
 -- AUTO_INCREMENT for table `students`
 --
 ALTER TABLE `students`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- AUTO_INCREMENT for table `student_information_sheets`
@@ -574,16 +636,22 @@ ALTER TABLE `career_interest_test_results`
   ADD CONSTRAINT `career_interest_test_results_student_id_foreign` FOREIGN KEY (`student_id`) REFERENCES `students` (`id`) ON DELETE CASCADE;
 
 --
+-- Constraints for table `case_reports`
+--
+ALTER TABLE `case_reports`
+  ADD CONSTRAINT `case_reports_user_id_foreign` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`) ON DELETE CASCADE;
+
+--
 -- Constraints for table `counseling_anecdotal_records`
 --
 ALTER TABLE `counseling_anecdotal_records`
   ADD CONSTRAINT `counseling_anecdotal_records_student_id_foreign` FOREIGN KEY (`student_id`) REFERENCES `students` (`id`) ON DELETE CASCADE;
 
 --
--- Constraints for table `events`
+-- Constraints for table `meetings`
 --
-ALTER TABLE `events`
-  ADD CONSTRAINT `events_user_id_foreign` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`) ON DELETE CASCADE;
+ALTER TABLE `meetings`
+  ADD CONSTRAINT `meetings_user_id_foreign` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`) ON DELETE CASCADE;
 
 --
 -- Constraints for table `parent_conference_records`
