@@ -36,7 +36,7 @@
       <textarea readonly
           style="margin-left: 1.5px; margin-right:auto; margin-top: -10px; color:#292b2c; height:150px; width: 591px; font-size: 15px; font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;">{{ $content }}</textarea>
 
-    <h1 style="font-size: 12px; color: white; font-weight: 400">Regards, <br>Guidance Designate</h1>
+    <h1 style="font-size: 12px; color: white; font-weight: 400; margin-left: 10px; margin-bottom: 5px;">Regards, <br>Guidance Designate</h1>
   
     </div>
 </div>
