@@ -97,6 +97,9 @@
                                                 style="text-align: center">Email</th>
                                             <th scope="col"
                                                 class="d-none d-md-table-cell d-lg-table-cell d-xl-table-cell"
+                                                style="text-align: center">Parent/s Phone No.</th>
+                                            <th scope="col"
+                                                class="d-none d-md-table-cell d-lg-table-cell d-xl-table-cell"
                                                 style="text-align: center">Address</th>
                                             <th scope="col">Edit</th>
                                             <th scope="col">Delete</th>
@@ -122,6 +125,8 @@
                                                     style="text-align: center">{{ $charity->gender }}</td>
                                                 <td class="d-none d-md-table-cell d-lg-table-cell d-xl-table-cell"
                                                     style="text-align: center">{{ $charity->email }}</td>
+                                                <td class="d-none d-md-table-cell d-lg-table-cell d-xl-table-cell"
+                                                    style="text-align: center">{{ $charity->parent_num }}</td>
                                                 <td class="d-none d-md-table-cell d-lg-table-cell d-xl-table-cell"
                                                     style="text-align: center">{{ $charity->address }}</td>
                                                 <td><a href="{{ url('edit-charity-student/' . $charity->id) }}"

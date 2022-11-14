@@ -79,6 +79,7 @@ class FaithStudentController extends Controller
            'email' => 'email|required',
            'parent_name' => 'string|required',
            'parent_email' => 'nullable|email',
+           'parent_num' => 'nullable',
            'address' => 'string|required',
        ]);
 
@@ -94,6 +95,7 @@ class FaithStudentController extends Controller
            'email' => $request->email,
            'parent_name' => $request->parent_name,
            'parent_email' => $request->parent_email,
+           'parent_num' => $request->parent_num,
            'address' => $request->address,
        ]);
 
@@ -112,6 +114,7 @@ class FaithStudentController extends Controller
         $faithStudents->email = $request->input('email');
         $faithStudents->parent_name = $request->input('parent_name');
         $faithStudents->parent_email = $request->input('parent_email');
+        $faithStudents->parent_num = $request->input('parent_num');
         $faithStudents->address = $request->input('address');
         
         

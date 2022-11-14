@@ -77,6 +77,13 @@
                 </div>
 
                 <div class="input-group mb-3">
+                    <label for="" style="color:dimgray;"><span class="input-group-text bg-secondary"
+                            style="width: 43px;">No.</span></label>
+                    <input type="text" name="parent_num" class="form-control"
+                        value="{{ $charityStudents->parent_num }}">
+                </div>
+
+                <div class="input-group mb-3">
                     <label for="" style="color:dimgray;"><span class=" input-group-text bg-secondary"
                             style="width: 43px;">Ad</span></label>
                     <input type="text" name="address" class="form-control" value="{{ $charityStudents->address }}"

@@ -77,6 +77,7 @@ class WisdomStudentController extends Controller
             'email' => 'email|required',
             'parent_name' => 'string|required',
             'parent_email' => 'nullable|email',
+            'parent_num' => 'nullable',
             'address' => 'string|required',
         ]);
 
@@ -91,6 +92,7 @@ class WisdomStudentController extends Controller
             'email' => $request->email,
             'parent_name' => $request->parent_name,
             'parent_email' => $request->parent_email,
+            'parent_num' => $request->parent_num,
             'address' => $request->address,
         ]);
 
@@ -110,6 +112,7 @@ class WisdomStudentController extends Controller
         $wisdomStudents->address = $request->input('address');
         $wisdomStudents->parent_name = $request->input('parent_name');
         $wisdomStudents->parent_email = $request->input('parent_email');
+        $wisdomStudents->parent_num = $request->input('parent_num');
 
     
         $wisdomStudents->update();

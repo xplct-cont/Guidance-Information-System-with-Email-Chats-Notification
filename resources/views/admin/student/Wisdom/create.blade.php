@@ -85,6 +85,13 @@
                             </div>
 
                             <div class="form-group">
+                                <label for="" style="color:dimgray;">Parent Phone No.</label>
+                                <input type="text" name="parent_num" class="form-control"
+                                    placeholder="Enter Parent/Guardian phone number ">
+
+                            </div>
+
+                            <div class="form-group">
                                 <label for="" style="color:dimgray;">Address</label>
                                 <input type="text" name="address" class="form-control" placeholder="Enter Address"
                                     required>

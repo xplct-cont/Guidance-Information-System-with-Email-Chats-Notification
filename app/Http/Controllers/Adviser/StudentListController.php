@@ -64,6 +64,7 @@ class StudentListController extends Controller
             'email' => 'email|required',
             'parent_name' => 'string|required',
             'parent_email' => 'nullable|email',
+            'parent_num' => 'nullable',
             'address' => 'string|required',
         ]);
 
@@ -78,6 +79,7 @@ class StudentListController extends Controller
             'email' => $request->email,
             'parent_name' => $request->parent_name,
             'parent_email' => $request->parent_email,
+            'parent_num' => $request->parent_num,
             'address' => $request->address,
         ]);
 
@@ -100,6 +102,7 @@ class StudentListController extends Controller
             'email' => 'email|required',
             'parent_name' => 'string|required',
             'parent_email' => 'nullable|email',
+            'parent_num' => 'nullable',
             'address' => 'string|required',
         ]);
 

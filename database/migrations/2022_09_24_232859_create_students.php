@@ -25,6 +25,7 @@ class CreateStudents extends Migration
             $table->string('email')->unique();
             $table->string('parent_name');
             $table->string('parent_email')->unique()->nullable();
+            $table->string('parent_num')->nullable();
             $table->string('address');
             $table->string('avatar')->default('image18.png');
             $table->timestamps();

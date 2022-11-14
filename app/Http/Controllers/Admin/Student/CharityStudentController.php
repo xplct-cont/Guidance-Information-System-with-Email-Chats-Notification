@@ -79,6 +79,7 @@ class CharityStudentController extends Controller
             'email' => 'email|required',
             'parent_name' => 'string|required',
             'parent_email' => 'nullable|email',
+            'parent_num' => 'nullable',
             'address' => 'string|required',
         ]);
 
@@ -94,6 +95,7 @@ class CharityStudentController extends Controller
             'email' => $request->email,
             'parent_name' => $request->parent_name,
             'parent_email' => $request->parent_email,
+            'parent_num' => $request->parent_num,
             'address' => $request->address,
         ]);
 
@@ -111,6 +113,7 @@ class CharityStudentController extends Controller
         $charityStudents->email = $request->input('email');
         $charityStudents->parent_name = $request->input('parent_name');
         $charityStudents->parent_email = $request->input('parent_email');
+        $charityStudents->parent_num = $request->input('parent_num');
         $charityStudents->address = $request->input('address');
         
         

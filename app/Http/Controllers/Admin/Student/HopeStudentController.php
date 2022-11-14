@@ -73,6 +73,7 @@ class HopeStudentController extends Controller
                'email' => 'email|required',
                'parent_name' => 'string|required',
                'parent_email' => 'nullable|email',
+               'parent_num' => 'nullable',
                'address' => 'string|required',
            ]);
    
@@ -88,6 +89,7 @@ class HopeStudentController extends Controller
                'email' => $request->email,
                'parent_name' => $request->parent_name,
                'parent_email' => $request->parent_email,
+               'parent_num' => $request->parent_num,
                'address' => $request->address,
            ]);
    
@@ -106,6 +108,7 @@ class HopeStudentController extends Controller
             $hopeStudents->email = $request->input('email');
             $hopeStudents->parent_name = $request->input('parent_name');
             $hopeStudents->parent_email = $request->input('parent_email');
+            $hopeStudents->parent_num = $request->input('parent_num');
             $hopeStudents->address = $request->input('address');
             
     

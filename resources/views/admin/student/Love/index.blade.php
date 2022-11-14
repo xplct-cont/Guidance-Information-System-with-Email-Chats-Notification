@@ -108,6 +108,9 @@
                                                 style="text-align: center">Email</th>
                                             <th scope="col"
                                                 class="d-none d-md-table-cell d-lg-table-cell d-xl-table-cell"
+                                                style="text-align: center">Parent/s Phone No.</th>
+                                            <th scope="col"
+                                                class="d-none d-md-table-cell d-lg-table-cell d-xl-table-cell"
                                                 style="text-align: center">Address</th>
                                             <th scope="col">Edit</th>
                                             <th scope="col">Delete</th>
@@ -133,6 +136,8 @@
                                                     style="text-align: center">{{ $love->gender }}</td>
                                                 <td class="d-none d-md-table-cell d-lg-table-cell d-xl-table-cell"
                                                     style="text-align: center">{{ $love->email }}</td>
+                                                <td class="d-none d-md-table-cell d-lg-table-cell d-xl-table-cell"
+                                                    style="text-align: center">{{ $love->parent_num }}</td>
                                                 <td class="d-none d-md-table-cell d-lg-table-cell d-xl-table-cell"
                                                     style="text-align: center">{{ $love->address }}</td>
                                                 <td><a href="{{ url('edit-love-student/' . $love->id) }}"
