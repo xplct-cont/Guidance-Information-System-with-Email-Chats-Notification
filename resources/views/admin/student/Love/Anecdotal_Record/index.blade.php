@@ -10,7 +10,7 @@
         {{ $student_lov->year_section }}</h1>
     <hr>
 
-    <div class="container" style="">
+    <div class="" style="">
         <div class="card">
             <div class="card-header text-center">
                 <h1 class="text-dark "

@@ -1,6 +1,10 @@
 @extends('adviserpage.app')
 
 @section('content')
+<h1
+style="color:dimgray; font-size:22px; margin-left:20px; position:relative; top:15px; font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif">
+HOME</h1>
+
     <div class="cardBox">
         <div class="card elevation-2">
             <div class="iconBx">
