@@ -110,7 +110,7 @@
         <footer class="sticky-footer">
             <div class="container">
                 <div class="copyright text-center">
-                    <span style="color: whitesmoke;">Copyright &copy; Pangangan National High School 2022</span>
+                    <span style="color: whitesmoke;">&copy; Pangangan National High School 2022</span>
                 </div>
             </div>
         </footer>
