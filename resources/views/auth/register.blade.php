@@ -38,6 +38,12 @@
 </head>
 <body>
 
+    @if ($message = Session::get('status'))
+    <div class="alert alert-success alert-block">
+        <button type="button" class="close" data-dismiss="alert" style="color:black;">×</button>
+        <strong>{{ $message }}</strong>
+    </div>
+@endif
 
 
 <div class="container" style="margin-top:60px;">
@@ -86,7 +92,7 @@
                             <label for="advisory" class="col-md-4 col-form-label text-md-end">{{ __('Advisory') }}</label>
 
                         <div class=" col-md-6" >
-                            <select name="advisory" class="form-control" required>
+                            <select name="advisory" class="form-control @error('advisory') is-invalid @enderror" required>
                                 <option hidden="true"></option>
                                 <option selected disabled>Select Advisory</option>
                                 <option value="Grade 11 - Charity">Grade 11 - Charity</option>
@@ -95,12 +101,12 @@
                                 <option value="Grade 12 - Hope">Grade 12 - Hope</option>
                                 <option value="Grade 12 - Love">Grade 12 - Love</option>
                                </select> 
+                               @error('advisory')
+                               <span class="invalid-feedback" role="alert">
+                                   <strong>{{ $message }}</strong>
+                               </span>
+                           @enderror
                             </div>
-                            @error('advisory')
-                            <span class="invalid-feedback" role="alert">
-                                <strong>{{ $message }}</strong>
-                            </span>
-                        @enderror
                         </div>
 
 
