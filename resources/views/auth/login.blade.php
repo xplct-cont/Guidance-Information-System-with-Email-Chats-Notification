@@ -81,7 +81,7 @@
 
                             <div class="col-md-6">
                                 <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="current-password">
-
+                                <span class="d-flex justify-content-end mt-1"><i class="fas fa-eye text-danger" aria-hidden="true" id="eye" onclick="toggle()"></i></span>
                                 @error('password')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
@@ -146,6 +146,22 @@
         integrity="sha512-++c7zGcm18AhH83pOIETVReg0dr1Yn8XTRw+0bWSIWAVCAwz1s2PwnSj4z/OOyKlwSXc4RLg3nnjR22q0dhEyA=="
         crossorigin="anonymous"></script>
     
+        <script>
+            var state = false;
+            function toggle(){
+                if(state){
+                    document.getElementById(
+                        'password'
+                    ).setAttribute("type", "password");
+                    state = false;
+                }else{
+                    document.getElementById(
+                        'password'
+                    ).setAttribute("type", "text");
+                    state = true;
+                }
+            }
+        </script>
     </body>
 </html>
 @endsection

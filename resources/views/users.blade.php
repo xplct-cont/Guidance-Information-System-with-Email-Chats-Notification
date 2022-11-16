@@ -25,7 +25,7 @@
 </div>
 
 
-    <div class="container text-dark" style="margin:auto; position:relative; top: 30px;">
+    <div class="text-dark" style="margin:auto; position:relative; top: 30px;">
         <div class="row justify-content-center">
             <div class="col-md-12">
                 <div class="card bg-dark">
@@ -64,7 +64,7 @@
                                     <td>{{ $user->name }}</td>
                                     <td class="d-none d-md-table-cell d-lg-table-cell d-xl-table-cell">{{$user->advisory}}</td>
                                     <td class="d-none d-md-table-cell d-lg-table-cell d-xl-table-cell">{{ $user->email }}</td>
-                                    <td class="d-none d-md-table-cell d-lg-table-cell d-xl-table-cell">{{ $user->created_at }}</td>
+                                    <td class="d-none d-md-table-cell d-lg-table-cell d-xl-table-cell">{{ $user->created_at->format('F d, Y') }}</td>
                                     <td>{{ $user->email_verified_at ? 'Verified' : 'Not Verified' }}</td>
                                     <td> <a href="{{ route('admin.users.approve', $user->id) }}"
                                         class="btn btn-success btn-sm" style="margin-top: 1px;;"><span class="fas fa-check"></span></a></td></td>
