@@ -34,7 +34,7 @@
 
 
 
-<li class="text-white text-center mt-2" style="padding:5px; font-size:15px; background-color:dimgray;">
+<li class="text-white text-center mt-2" style="padding:5px; font-size:15px; background-color:rgb(76, 76, 76);">
     <a href="#pageSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle text-white">GRADE 11 SECTIONS</a>
     <ul class="collapse list-unstyled" id="pageSubmenu">
         <li style="margin-top: 12px;">
@@ -50,7 +50,7 @@
 </li>
 
 
-<li class="text-white text-center mt-3" style="padding:5px; font-size:15px; background-color:dimgray;">
+<li class="text-white text-center mt-3" style="padding:5px; font-size:15px; background-color:rgb(76, 76, 76);">
     <a href="#Submenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle text-white">GRADE 12 SECTIONS</a>
     <ul class="collapse list-unstyled" id="Submenu">
         <li style="margin-top: 12px;">
