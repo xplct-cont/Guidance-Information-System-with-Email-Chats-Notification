@@ -19,7 +19,15 @@
                 @csrf
                 @method('PUT')
 
-                <div class="input-group mb-3 mt-3">
+                <div class="input-group mb-3 mt-4">
+                    <label for="" style="color:dimgray;"><span class=" input-group-text bg-secondary"
+                            style="width: 43px;">ID</span></label>
+                    <input type="text" name="school_id" class="form-control" value="{{ $wisdomStudents->school_id }}"
+                        required>
+                </div>
+
+
+                <div class="input-group mb-3 ">
                     <label for="" style="color:dimgray;"><span class=" input-group-text bg-secondary"
                             style="width: 43px;">Ln</span></label>
                     <input type="text" name="lastname" class="form-control" value="{{ $wisdomStudents->lastname }}"

@@ -34,7 +34,8 @@ class LoveStudentController extends Controller
                 if(($love = $request->love)){
                     $query->orWhere('lastname', 'LIKE', '%'. $love . '%')
                     ->orWhere('firstname', 'LIKE', '%'. $love . '%')
-                    ->orWhere('middle', 'LIKE', '%'. $love . '%')->get();
+                    ->orWhere('middle', 'LIKE', '%'. $love . '%')
+                    ->orWhere('school_id', 'LIKE', '%'. $love . '%')->get();
     
                     
                 }
@@ -64,6 +65,7 @@ class LoveStudentController extends Controller
        public function store(Request $request) {
            $request->validate([
                'user_id' => 'required',
+               'school_id' =>'required',
                'firstname' => 'string|required',
                'lastname' => 'string|required',
                'middlename' => 'string|required',
@@ -80,6 +82,7 @@ class LoveStudentController extends Controller
            $loveStudents = Student::create([
                
                'user_id' => $request->user_id,
+               'school_id' => $request->school_id,
                'firstname' => $request->firstname,
                'lastname' => $request->lastname,
                'middlename' => $request->middlename,
@@ -99,6 +102,7 @@ class LoveStudentController extends Controller
     
         public function update(Request $request, $id){
             $loveStudents = Student::find($id);
+            $loveStudents->school_id = $request->input('school_id');
             $loveStudents->lastname = $request->input('lastname');
             $loveStudents->firstname = $request->input('firstname');
             $loveStudents->middlename = $request->input('middlename');

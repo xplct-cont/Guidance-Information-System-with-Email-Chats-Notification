@@ -12,7 +12,11 @@
             <form action="{{ url('update-my-student/' . $student->id) }}" method="POST" accept-charset="UTF-8">
                 @csrf
                 @method('PUT')
-
+                <div class="input-group mb-3">
+                    <label for="" style="color:dimgray;"><span class="input-group-text bg-secondary"
+                            style="width: 43px;">ID</span></label>
+                    <input type="text" name="school_id" value="{{ $student->school_id }}" class="form-control" required>
+                </div>
 
                 <div class="input-group mb-3">
                     <label for="" style="color:dimgray;"><span class="input-group-text bg-secondary"

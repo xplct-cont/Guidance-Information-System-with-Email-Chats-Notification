@@ -34,7 +34,8 @@ class HopeStudentController extends Controller
                 if(($hope = $request->hope)){
                     $query->orWhere('lastname', 'LIKE', '%'. $hope . '%')
                     ->orWhere('firstname', 'LIKE', '%'. $hope . '%')
-                    ->orWhere('middlename', 'LIKE', '%'. $hope . '%')->get();
+                    ->orWhere('middlename', 'LIKE', '%'. $hope . '%')
+                    ->orWhere('school_id', 'LIKE', '%'. $hope . '%')->get();
     
                     
                 }
@@ -64,6 +65,7 @@ class HopeStudentController extends Controller
        public function store(Request $request) {
            $request->validate([
                'user_id' => 'required',
+               'school_id' => 'required',
                'firstname' => 'string|required',
                'lastname' => 'string|required',
                'middlename' => 'string|required',
@@ -80,6 +82,7 @@ class HopeStudentController extends Controller
            $hopeStudents = Student::create([
                
                'user_id' => $request->user_id,
+               'school_id' => $request->school_id,
                'firstname' => $request->firstname,
                'lastname' => $request->lastname,
                'middlename' => $request->middlename,
@@ -99,6 +102,7 @@ class HopeStudentController extends Controller
     
         public function update(Request $request, $id){
             $hopeStudents = Student::find($id);
+            $hopeStudents->school_id = $request->input('school_id');
             $hopeStudents->lastname = $request->input('lastname');
             $hopeStudents->firstname = $request->input('firstname');
             $hopeStudents->middlename = $request->input('middlename');

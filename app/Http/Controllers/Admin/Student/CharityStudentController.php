@@ -39,7 +39,8 @@ class CharityStudentController extends Controller
             if(($charity = $request->charity)){
                 $query->orWhere('lastname', 'LIKE', '%'. $charity . '%')
                 ->orWhere('firstname', 'LIKE', '%'. $charity . '%')
-                ->orWhere('middlename', 'LIKE', '%'. $charity . '%')->get();
+                ->orWhere('middlename', 'LIKE', '%'. $charity . '%')
+                ->orWhere('school_id', 'LIKE', '%'. $charity . '%')->get();
 
                 
             }
@@ -70,6 +71,7 @@ class CharityStudentController extends Controller
     public function store(Request $request) {
         $request->validate([
             'user_id' => 'required',
+            'school_id' => 'required',
             'firstname' => 'string|required',
             'lastname' => 'string|required',
             'middlename' => 'string|required',
@@ -86,6 +88,7 @@ class CharityStudentController extends Controller
         $charityStudents = Student::create([
             
             'user_id' => $request->user_id,
+            'school_id' => $request->school_id,
             'firstname' => $request->firstname,
             'lastname' => $request->lastname,
             'middlename' => $request->middlename,
@@ -104,6 +107,7 @@ class CharityStudentController extends Controller
 
     public function update(Request $request, $id){
         $charityStudents = Student::find($id);
+        $charityStudents->school_id = $request->input('school_id');
         $charityStudents->lastname = $request->input('lastname');
         $charityStudents->firstname = $request->input('firstname');
         $charityStudents->middlename = $request->input('middlename');

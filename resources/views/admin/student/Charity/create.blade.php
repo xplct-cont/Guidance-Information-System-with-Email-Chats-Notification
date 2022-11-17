@@ -23,6 +23,13 @@
                         <div class="col-md-6">
 
                             <div class="form-group">
+                                <label for="" style="color:dimgray;">Student ID</label>
+                                <input type="text" name="school_id" class="form-control" placeholder="XXXXXXX"
+                                    required>
+
+                            </div>
+
+                            <div class="form-group">
                                 <label for="" style="color:dimgray;">Lastname</label>
                                 <input type="text" name="lastname" class="form-control" placeholder="Enter Last Name"
                                     required>

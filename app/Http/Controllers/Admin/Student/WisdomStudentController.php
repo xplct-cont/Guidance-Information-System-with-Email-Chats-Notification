@@ -40,7 +40,8 @@ class WisdomStudentController extends Controller
             if(($wisdom = $request->wisdom)){
                 $query->orWhere('lastname', 'LIKE', '%'. $wisdom . '%')
                 ->orWhere('firstname', 'LIKE', '%'. $wisdom . '%')
-                ->orWhere('middlename', 'LIKE', '%'. $wisdom . '%')->get();
+                ->orWhere('middlename', 'LIKE', '%'. $wisdom . '%')
+                ->orWhere('school_id', 'LIKE', '%'. $wisdom . '%')->get();
 
                 
             }
@@ -68,6 +69,7 @@ class WisdomStudentController extends Controller
 
     public function store(Request $request) {
         $request->validate([
+            'school_id' => 'required',
             'firstname' => 'string|required',
             'lastname' => 'string|required',
             'middlename' => 'string|required',
@@ -83,6 +85,7 @@ class WisdomStudentController extends Controller
 
         $wisdomStudents = Student::create([
             'user_id' => auth()->user()->id,
+            'school_id' => $request->school_id,
             'firstname' => $request->firstname,
             'lastname' => $request->lastname,
             'middlename' => $request->middlename,
@@ -102,6 +105,7 @@ class WisdomStudentController extends Controller
 
     public function update(Request $request, $id){
         $wisdomStudents = Student::find($id);
+        $wisdomStudents->school_id = $request->input('school_id');
         $wisdomStudents->lastname = $request->input('lastname');
         $wisdomStudents->firstname = $request->input('firstname');
         $wisdomStudents->middlename = $request->input('middlename');

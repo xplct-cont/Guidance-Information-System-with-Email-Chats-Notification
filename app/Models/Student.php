@@ -11,7 +11,7 @@ class Student extends Model
 {
     use HasApiTokens, HasFactory, Notifiable;
 
-    protected $fillable =['user_id', 'firstname', 'lastname', 'middlename', 'gender',  'age', 'year_section', 'email', 'parent_name', 'parent_email', 'address', 'parent_num'];
+    protected $fillable =['user_id', 'school_id', 'firstname', 'lastname', 'middlename', 'gender',  'age', 'year_section', 'email', 'parent_name', 'parent_email', 'address', 'parent_num'];
 
 
     protected $casts = [

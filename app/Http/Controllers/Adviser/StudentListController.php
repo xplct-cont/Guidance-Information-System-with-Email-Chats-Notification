@@ -34,7 +34,9 @@ class StudentListController extends Controller
             [function($query) use ($request){
                 if(($student = $request->student)){
                     $query->orWhere('lastname', 'LIKE', '%'. $student . '%')
-                    ->orWhere('firstname', 'LIKE', '%'. $student . '%')->get();
+                    ->orWhere('firstname', 'LIKE', '%'. $student . '%')
+                    ->orWhere('middlename', 'LIKE', '%'. $student . '%')
+                    ->orWhere('school_id', 'LIKE', '%'. $student . '%')->get();
                 }
             }]
         ])
@@ -55,6 +57,7 @@ class StudentListController extends Controller
     
     public function store(Request $request) {
         $request->validate([
+            'school_id' => 'required',
             'firstname' => 'string|required',
             'lastname' => 'string|required',
             'middlename' => 'string|required',
@@ -70,6 +73,7 @@ class StudentListController extends Controller
 
         $student = Student::create([
             'user_id' => auth()->user()->id,
+            'school_id' => $request->school_id,
             'firstname' => $request->firstname,
             'lastname' => $request->lastname,
             'middlename' => $request->middlename,
@@ -93,6 +97,7 @@ class StudentListController extends Controller
     
     public function update(Student $student, Request $request) {
         $request->validate([
+            'school_id' => 'required',
             'firstname' => 'string|required',
             'lastname' => 'string|required',
             'middlename' => 'string|required',

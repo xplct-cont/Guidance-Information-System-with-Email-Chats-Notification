@@ -18,7 +18,7 @@
                             <span class="fas fa-search"></span>
                         </button>
                     </span>
-                    <input type="text" class="form-control mr-2" name="faith" placeholder="Search Name" id="faith">
+                    <input type="text" class="form-control mr-2" name="faith" placeholder="Search" id="faith">
                     <a href="{{ route('faith-list') }}" class=" mt-0">
                         <span class="input-group-btn">
                             <button class="btn btn-danger" type="button" title="Refresh page">
@@ -74,6 +74,9 @@
                                     <thead class="bg-info rounded text-center">
                                         <tr>
                                             <th scope="col">Records</th>
+                                            <th scope="col"
+                                            class="d-none d-md-table-cell d-lg-table-cell d-xl-table-cell"
+                                                style="text-align: center">Student ID</th>
                                             <th scope="col">Last Name</th>
                                             <th scope="col" 
                                                 class="d-none d-md-table-cell d-lg-table-cell d-xl-table-cell"
@@ -109,6 +112,8 @@
                                                 <td><a href="{{ url('show-student-faith/' . $faith->id) }}"
                                                         class="btn btn-success btn-sm "><span
                                                             class="fas fa-mail-bulk"></span></a></td>
+                                                <td class="d-none d-md-table-cell d-lg-table-cell d-xl-table-cell"
+                                                    style="text-align: center">{{ $faith->school_id }}</td>
                                                 <td>{{ $faith->lastname }}</td>
                                                 <td class="d-none d-md-table-cell d-lg-table-cell d-xl-table-cell"
                                                     style="text-align: center">{{ $faith->firstname }}</td>

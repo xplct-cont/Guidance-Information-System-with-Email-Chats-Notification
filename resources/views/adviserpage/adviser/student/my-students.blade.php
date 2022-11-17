@@ -42,7 +42,7 @@
                             <span class="fas fa-search"></span>
                         </button>
                     </span>
-                    <input type="text" class="form-control mr-2" name="student" placeholder="Search Full Name" id="student">
+                    <input type="text" class="form-control mr-2" name="student" placeholder="Search" id="student">
                     <a href="{{route('advisory-list-students')}}" class=" mt-0">
                         <span class="input-group-btn">
                             <button class="btn btn-danger" type="button" title="Refresh page">
@@ -64,8 +64,9 @@
                   <tr>
                     
                     <th scope="col">View Records</th>
+                    <th scope="col" class="d-none d-md-table-cell d-lg-table-cell d-xl-table-cell" style="text-align: center">Student ID</th>
                     <th scope="col">Last Name</th>
-                    <th scope="col">First Name</th>
+                    <th scope="col" class="d-none d-md-table-cell d-lg-table-cell d-xl-table-cell" style="text-align: center">First Name</th>
                     <th scope="col" class="d-none d-md-table-cell d-lg-table-cell d-xl-table-cell" style="text-align: center">Middle Name</th>
                     <th scope="col" class="d-none d-md-table-cell d-lg-table-cell d-xl-table-cell" style="text-align: center">Year/Section</th>
                     <th scope="col" class="d-none d-md-table-cell d-lg-table-cell d-xl-table-cell" style="text-align: center">Gender</th>
@@ -81,8 +82,9 @@
                   <tr class="text-center">
                     
                     <td><a href="{{url('show-my-student/'.$student->id)}}" class="btn btn-success btn-sm "><span class="fas fa-mail-bulk"></span></a></td>
+                    <td class="d-none d-md-table-cell d-lg-table-cell d-xl-table-cell" style="text-align: center">{{$student->school_id}}</td>
                     <td>{{$student->lastname}}</td>
-                    <td>{{$student->firstname}}</td>
+                    <td class="d-none d-md-table-cell d-lg-table-cell d-xl-table-cell" style="text-align: center">{{$student->firstname}}</td>
                     <td class="d-none d-md-table-cell d-lg-table-cell d-xl-table-cell" style="text-align: center">{{$student->middlename}}</td>
                     <td class="d-none d-md-table-cell d-lg-table-cell d-xl-table-cell" style="text-align: center">{{$student->year_section}}</td>
                     <td class="d-none d-md-table-cell d-lg-table-cell d-xl-table-cell" style="text-align: center">{{$student->gender}}</td>
