@@ -5,8 +5,8 @@
         <div class="p-2 col-md-8">
             <div class="card-header">
                 <h1 class="text-center"
-                    style="font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; margin:auto; font-size: 25px; color:dimgray;">
-                    EDIT STUDENT INFORMATIONS</h1>
+                    style="font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; margin:auto; font-size: 23px; color:dimgray;">
+                    Name: {{$student->firstname}} {{$student->lastname}} </h1>
             </div> <br>
 
             <form action="{{ url('update-my-student/' . $student->id) }}" method="POST" accept-charset="UTF-8">

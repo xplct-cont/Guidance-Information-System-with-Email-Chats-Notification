@@ -10,10 +10,9 @@
             @endif
             <div class="card-header elevation-1">
                 <h1
-                    style="position: absolute; left:32%; color:whitesmoke; margin:auto; font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; font-size: 20px; color:dimgray;">
-                    {{ $charityStudents->firstname }} {{ $charityStudents->lastname }}</h1>
-                <img src="/images/image17.png" class="user-image img-circle elevation-2 " alt="User Image"
-                    style="width: 40px; height:40px; border-radius: 50%; background-color: #5bc0de; padding-left: 2px; padding-right:2px; padding-bottom:2px; padding-top: 2px;">
+                    style="text-align:center; color:whitesmoke; margin:auto; font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; font-size: 20px; color:dimgray;">
+                    Name: {{ $charityStudents->firstname }} {{ $charityStudents->lastname }}</h1>
+        
             </div>
             <form action="{{ url('update-charity-student/' . $charityStudents->id) }}" method="POST" accept-charset="UTF-8">
                 @csrf
