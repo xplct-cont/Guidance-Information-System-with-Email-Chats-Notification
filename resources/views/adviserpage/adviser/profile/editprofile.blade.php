@@ -38,6 +38,13 @@
     </head>
 
     <body>
+          
+        @if ($message = Session::get('status'))
+            <div class="alert alert-success alert-block">
+                <button type="button" class="close" data-dismiss="alert" style="color:black;">×</button>
+                <strong>{{ $message }}</strong>
+            </div>
+        @endif
 
         <h1
             style="color:dimgray; font-weight:regular; font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; font-size: 25px; position:relative; top: 20px; margin-left: 10px;">
@@ -86,6 +93,13 @@
                                 style="width: 43px;"></span></label>
                         <input type="text" name="name" value="{{ $user->name }}" class="form-control" required>
                     </div>
+
+                    <div class="input-group mb-3">
+                        <label for="" style="color:dimgray;"><span class=" input-group-text bg-secondary"
+                                style="width: 43px;">ID</span></label>
+                        <input type="text" name="adviser_id" value="{{ $user->adviser_id }}" class="form-control" required>
+                    </div>
+
 
                     <div class="input-group mb-3">
                         <label for="" style="color:dimgray;"><span class="input-group-text bg-secondary"

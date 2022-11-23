@@ -66,12 +66,13 @@ class AdviserProfileController extends Controller
             $user = User::find($id);
             $user->name = $request->input('name');
             $user->advisory = $request->input('advisory');
+            $user->adviser_id = $request->input('adviser_id');
             $user->contact_no = $request->input('contact_no');
             $user->email = $request->input('email');
 
         
             $user->update();
-            return redirect('adviserprofile');
+            return redirect('adviserprofile')->with('status', 'Profile updated successfully!');
           
          }
 

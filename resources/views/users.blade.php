@@ -49,11 +49,12 @@
                             <tr class="bg-danger">
                                 <th>Remove</th>
                                 <th>Full Name</th>
+                                <th class="">Adviser ID</th>
                                 {{-- <th>Role</th> --}}
                                 <th class="d-none d-md-table-cell d-lg-table-cell d-xl-table-cell">Advisory</th>
                                 <th class="d-none d-md-table-cell d-lg-table-cell d-xl-table-cell">Email</th>
                                 <th class="d-none d-md-table-cell d-lg-table-cell d-xl-table-cell">Registered at</th>
-                                <th>Email Verification Status</th>
+                                <th class="d-none d-md-table-cell d-lg-table-cell d-xl-table-cell">Email Verification Status</th>
                                 <th>Approve</th>
                                
                             </tr>
@@ -62,10 +63,11 @@
                                     <td><a href="{{ route('admin.users.destroy', $user->id) }}"
                                         class="btn btn-danger btn-sm" style="margin-top: 1px;"><span class="fas fa-trash-alt"></span></a></td>
                                     <td>{{ $user->name }}</td>
+                                    <td class="">{{$user->adviser_id}}</td>
                                     <td class="d-none d-md-table-cell d-lg-table-cell d-xl-table-cell">{{$user->advisory}}</td>
                                     <td class="d-none d-md-table-cell d-lg-table-cell d-xl-table-cell">{{ $user->email }}</td>
                                     <td class="d-none d-md-table-cell d-lg-table-cell d-xl-table-cell">{{ $user->created_at->format('F d, Y') }}</td>
-                                    <td>{{ $user->email_verified_at ? 'Verified' : 'Not Verified' }}</td>
+                                    <td class="d-none d-md-table-cell d-lg-table-cell d-xl-table-cell">{{ $user->email_verified_at ? 'Verified' : 'Not Verified' }}</td>
                                     <td> <a href="{{ route('admin.users.approve', $user->id) }}"
                                         class="btn btn-success btn-sm" style="margin-top: 1px;;"><span class="fas fa-check"></span></a></td></td>
                                     

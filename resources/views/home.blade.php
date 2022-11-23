@@ -120,6 +120,8 @@
                             <th style="text-align: center">Status</th>
                             <th style="text-align: center">Profile Image</th>
                             <th style="text-align: center">Name</th>
+                            <th class="d-none d-md-table-cell d-lg-table-cell d-xl-table-cell" style="text-align: center">
+                                Adviser ID</th>
                             <th style="text-align: center">Advisory</th>
                             <th class="d-none d-md-table-cell d-lg-table-cell d-xl-table-cell" style="text-align: center">
                                 Role</th>
@@ -153,6 +155,8 @@
                                 <td> <img src="{{ asset('storage/users-avatar/' . $item->avatar) }} " width="50px" height="50px"
                                         alt="Image" style="border-radius: 50%"></td>
                                 <td>{{ $item->name }}</td>
+                                <td class="d-none d-md-table-cell d-lg-table-cell d-xl-table-cell">{{ $item->adviser_id }}
+                                </td>
                                 <td>{{ $item->advisory }}</td>
                                 <td class="d-none d-md-table-cell d-lg-table-cell d-xl-table-cell">
                                     {{ $item->admin ? 'Guidance Designate' : 'Adviser' }}</td>

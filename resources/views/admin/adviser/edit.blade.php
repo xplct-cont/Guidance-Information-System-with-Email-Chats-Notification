@@ -87,6 +87,12 @@
                         </div>
 
                         <div class="input-group mb-3">
+                            <label for="" style="color:dimgray;"><span class=" input-group-text bg-secondary"
+                                    style="width: 43px;">ID</span></label>
+                            <input type="text" name="adviser_id" value="{{ $adviser->adviser_id }}" class="form-control" required>
+                        </div>
+
+                        <div class="input-group mb-3">
                             <label for="" style="color:dimgray;"><span class="input-group-text bg-secondary"
                                     style="width: 43px;">As</span></label>
                             <input type="text" name="advisory" value="{{ $adviser->advisory }}" class="form-control"
@@ -117,16 +123,19 @@
                         </div>
 
 
-                        <div class="form-floating mb-3">
-                            <select name="admin" class="form-select" style="width: 120px;">
-                                <option hidden="true"></option>
-                                <option selected disabled>Select Role</option>
-                                <option value="1">Administrator</option>
-                                <option value="0">Adviser</option>
-                            </select>
-                            <label for="admin"></label>
+                        <p class="text-center" style="color: dimgray; font-weight: 500"><span class="fas fa-exclamation-triangle text-danger"></span> Select Role</p>
+                        <div class="form-group text-dark d-flex justify-content-center">
+                            <div class="maxl">
+                                <label class="radio inline mr-5">
+                                    <input type="radio" name="admin" value="1" {{ ($adviser->admin == '1' ? ' checked' : 'Unchecked') }}>
+                                    <span>Administrator</span>
+                                </label>
+                                <label class="radio inline">
+                                    <input type="radio" name="admin" value="0"  {{ ($adviser->admin == '0' ? ' checked' : 'Unchecked') }}>
+                                    <span>Adviser</span>
+                                </label>
+                            </div>
                         </div>
-
 
                         <div class="mb-3">
                             <button type="submit" class="btn btn-success float-right btn-sm mb-3"><span

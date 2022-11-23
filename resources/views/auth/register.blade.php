@@ -72,6 +72,21 @@
                             </div>
                         </div>
 
+
+                        <div class="row mb-3">
+                            <label for="adviser_id" class="col-md-4 col-form-label text-md-end">{{ __('Adviser ID') }}</label>
+
+                            <div class="col-md-6">
+                                <input id="adviser_id" type="text" class="form-control @error('adviser_id') is-invalid @enderror" name="adviser_id" value="{{ old('adviser_id') }}" required autocomplete="adviser_id" autofocus placeholder="XXXXXXX">
+
+                                @error('adviser_id')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
+                            </div>
+                        </div>
+
                         
 {{-- 
                         <div class="row mb-3">
@@ -145,7 +160,7 @@
 
                             <div class="col-md-6">
                                 <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="new-password">
-                                <span class="mt-1"><i class="fas fa-eye text-danger" aria-hidden="true" id="eye" onclick="toggle()"></i></span>
+                                <span class="mt-1 d-flex justify-content-end"><i class="fas fa-eye text-danger" aria-hidden="true" id="eye" onclick="toggle()"></i></span>
                                 @error('password')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>

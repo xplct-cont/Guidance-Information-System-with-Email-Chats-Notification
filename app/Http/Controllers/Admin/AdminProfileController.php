@@ -68,13 +68,14 @@ class AdminProfileController extends Controller
         public function update(Request $request, $id){
             $user = User::find($id);
             $user->name = $request->input('name');
+            $user->adviser_id = $request->input('adviser_id');
             $user->advisory = $request->input('advisory');
             $user->contact_no = $request->input('contact_no');
             $user->email = $request->input('email');
 
         
             $user->update();
-            return redirect('adminprofile');
+            return redirect('adminprofile')->with('status', 'Profile updated successfully!');
           
          }
 

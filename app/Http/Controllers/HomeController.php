@@ -114,6 +114,7 @@ class HomeController extends Controller
         $adviser = User::find($id);
         $adviser->contact_no = $request->input('contact_no');
         $adviser->name = $request->input('name');
+        $adviser->adviser_id = $request->input('adviser_id');
         $adviser->advisory = $request->input('advisory');
         $adviser->email = $request->input('email');
         $adviser->admin = $request->input('admin');

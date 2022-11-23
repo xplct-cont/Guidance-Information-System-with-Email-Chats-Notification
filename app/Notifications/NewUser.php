@@ -42,6 +42,7 @@ class NewUser extends Notification
             ->line('Name: ' . $this->new_user->name)
             ->line('Email: ' . $this->new_user->email)
             ->line('Advisory: ' . $this->new_user->advisory)
+            ->line('Adviser ID: ' . $this->new_user->adviser_id)
             ->action('Approve Adviser', route('admin.users.approve', $this->new_user->id));
     }
 
