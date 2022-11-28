@@ -56,6 +56,7 @@ use App\Http\Controllers\Admin\Student_Information_Sheet\Hope_Student_Informatio
 use App\Http\Controllers\Admin\Student_Information_Sheet\Love_Student_Information_SheetController;
 
 use App\Http\Controllers\Admin\Case_Report\Case_ReportController;
+use App\Http\Controllers\Admin\Exit_Interview_Form\Exit_Interview_FormController;
 
 use App\Http\Controllers\AdviserHomePageController;
 use App\Http\Controllers\Adviser\AdviserProfileController;
@@ -467,6 +468,14 @@ Route::middleware(['auth', ])->group(function () {
        Route::get('/delete_case_report/{id}', [Case_ReportController::class, 'destroy']);
        Route::get('/export_allCases_pdf', [Case_ReportController::class, 'export_allCases_pdf'])->name('export_allCases_pdf');
        Route::get('export_one_case_pdf/{id}', [Case_ReportController::class, 'export_one_case_pdf'])->name('export_one_case_pdf');
+
+       //for exit interview forms
+       Route::get('/exit_interview_forms', [Exit_Interview_FormController::class, 'index'])->name('exit_interview_forms');
+       Route::post('/create_exit_interview_form', [Exit_Interview_FormController::class, 'store']);
+       Route::put('/update_student_exit_form/{id}', [Exit_Interview_FormController::class, 'update']);
+       Route::get('/delete_student_exit_form/{id}', [Exit_Interview_FormController::class, 'destroy']);
+       Route::get('/download_student_exit_form/{id}', [Exit_Interview_FormController::class, 'downloadForm'])->name('download_student_exit_form');
+
        //for SHS Parents
        Route::get('shs-parents', [ParentController::class, 'index'])->name('shs-parents');
        Route::get('/email_to_parent/{id}', [ParentController::class, 'emailToParent']);

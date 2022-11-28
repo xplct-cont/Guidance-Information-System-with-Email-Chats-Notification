@@ -5,7 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Case_Report extends Model
+class Exit_Interview_Form extends Model
 {
     use HasFactory;
 
@@ -13,27 +13,24 @@ class Case_Report extends Model
     protected $fillable =
     [
         'user_id',
-        'victim_name',
-        'grade_section',
-        'sex',
-        'date_reported',
-        //respondent
-        'resp_name',
-        'resp_grade_section',
-        'resp_sex',
-        'nature_of_complaint',
-        'actions_taken',
-        'recommendations'
-
-
+        'name',
+        'date',
+        'school_year',
+        'year_section',
+        'reasons_for_leaving',
+        'others',
+        'reasons_for_transfer',
+        'date_2',
     ];
 
-    protected $table = "case_reports";
+    protected $table = "exit_forms";
 
 
     protected $casts = [
         'created_at' => 'datetime',
-        'date_reported' => 'date:hh:mm',
+        'date' => 'date',
+        'date_2' => 'date',
+     
         
     ];
 

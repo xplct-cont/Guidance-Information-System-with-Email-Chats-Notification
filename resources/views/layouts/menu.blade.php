@@ -69,6 +69,14 @@
     </a>
 </li>
 
+<li class="nav-item ">
+    <a href="{{ route('exit_interview_forms') }}" class="nav-link {{ Request::is('exit_interview_forms') ? 'bg-info active' : '' }}">
+        <p class="text-white">Exit Interview Forms</p>
+        <i class="fas fa-address-book fa-pull-left fa-md text-white"></i>
+    </a>
+</li>
+
+
 
 @php
 $bells = DB::table('ch_messages')->where('to_id', auth()->user()->id)->where('seen' , false)->count();
