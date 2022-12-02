@@ -79,7 +79,7 @@ class WisdomStudentController extends Controller
             'email' => 'email|required',
             'parent_name' => 'string|required',
             'parent_email' => 'nullable|email',
-            'parent_num' => 'nullable',
+            'parent_num' => 'required|digits:11',
             'address' => 'string|required',
         ]);
 

@@ -94,9 +94,14 @@
 
                             <div class="form-group">
                                 <label for="" style="color:dimgray;">Parent Phone No.</label>
-                                <input type="text" name="parent_num" class="form-control"
+                                <input id="parent_num" type="text" name="parent_num" class="form-control @error('parent_num') is-invalid @enderror"
                                     placeholder="Enter Parent/Guardian phone number ">
-
+                                 
+                                    @error('parent_num')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
                             </div>
 
                             <div class="form-group">
